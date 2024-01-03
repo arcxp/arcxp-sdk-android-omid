@@ -1,0 +1,32 @@
+name: Publish OMID to GitHub Packages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Publish AAR and POM to GitHub Packages
+        run: |
+          mvn deploy:deploy-file \
+            -Dfile=omsdk-android-1.4.9.aar \
+            -DpomFile=omsdk-android-1.4.9.pom \
+            -Durl=https://maven.pkg.github.com/arcxp/arcxp-sdk-android-omid \
+            -DrepositoryId=github
+
+    env:
+      CI: true
+      GITHUB_TOKEN: ${{ secrets.pat_token }}
