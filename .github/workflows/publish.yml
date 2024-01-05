@@ -25,7 +25,8 @@ jobs:
             -Dfile=omsdk-android-1.4.9.aar \
             -DpomFile=omsdk-android-1.4.9.pom \
             -Durl=https://maven.pkg.github.com/arcxp/arcxp-sdk-android-omid \
-            -DrepositoryId=github
+            -DrepositoryId=github \
+            -Dpackaging=aar
 
     env:
       CI: true
