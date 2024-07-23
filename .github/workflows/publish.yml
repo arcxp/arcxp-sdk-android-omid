@@ -22,8 +22,8 @@ jobs:
       - name: Publish AAR and POM to GitHub Packages
         run: |
           mvn deploy:deploy-file \
-            -Dfile=omsdk-android-1.4.9.aar \
-            -DpomFile=omsdk-android-1.4.9.pom \
+            -Dfile=omsdk-android-1.5.0.aar \
+            -DpomFile=omsdk-android-1.5.0.pom \
             -Durl=https://maven.pkg.github.com/arcxp/arcxp-sdk-android-omid \
             -DrepositoryId=github \
             -Dpackaging=aar
